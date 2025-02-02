@@ -36,6 +36,10 @@ def main():
         pygame.Surface.fill(screen, (0,0,0)) # black screen
         for u in updatable:
             u.update(dt)
+        for a in asteroids:
+            if a.collision(player):
+                print("Game over!")
+                return
         for d in drawable:
             d.draw(screen)
         pygame.display.flip()
